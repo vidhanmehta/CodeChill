@@ -3,6 +3,8 @@ import scrapeAmazonProduct from '@/utils/AmazonScraper';
 import scrapeFlipkartProduct from '@/utils/FlipkartScraper';
 import Product from '@/app/Product/page';
 import React from 'react';
+import scrapeZeptoProduct from './ZeptoScraper';
+import scrapeBigBasketProduct from './BigBasketScraper';
 
 
 const LinkScraper = async (productLink: string) => {
@@ -15,6 +17,14 @@ const LinkScraper = async (productLink: string) => {
           if(!productInfo) return NextResponse.json({ error: 'Failed to fetch Amazon product information' }, {status: 500});;
         }else if(productLink.startsWith('https://www.flipkart.com/')){
           productInfo = await scrapeFlipkartProduct(productLink)
+          console.log(productInfo)
+          if(!productInfo) return NextResponse.json({ error: 'Failed to fetch Flipkart product information' }, {status: 500});
+        }else  if (productLink.startsWith('https://www.zeptonow.com/')) {
+          productInfo = await scrapeZeptoProduct(productLink);
+          console.log(productInfo)
+          if(!productInfo) return NextResponse.json({ error: 'Failed to fetch Amazon product information' }, {status: 500});;
+        }else if(productLink.startsWith('https://www.bigbasket.com/')){
+          productInfo = await scrapeBigBasketProduct(productLink)
           console.log(productInfo)
           if(!productInfo) return NextResponse.json({ error: 'Failed to fetch Amazon product information' }, {status: 500});
         }else{

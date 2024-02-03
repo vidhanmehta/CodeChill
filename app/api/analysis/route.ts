@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
   
   ## Product Overview
   
-  Present a brief product description and its approximate calorie content along with the product category. Only if the product is a medicine then also provide a brief description of its medicinal properties with medicine as the category.
+  Present a brief product description and its approximate calorie content along with the product category. Only if the product is a medicine then also provide a brief description of its medicinal properties with medicine as the category. also share the price of ${price}
   
   ## Ingredients Breakdown
   
