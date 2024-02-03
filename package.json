@@ -9,7 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.2.0",
     "@nextui-org/react": "^2.2.9",
+    "ai": "^2.2.33",
+    "axios": "^1.6.7",
+    "cheerio": "^1.0.0-rc.12",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.3",
     "next": "14.1.0",
