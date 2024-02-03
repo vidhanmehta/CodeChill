@@ -29,9 +29,7 @@ export async function POST(req: NextRequest) {
   console.log(title)
   const prompt = `# Product Analysis
 
-  In a highly efficient, consistent and detailed manner, analyze the product (${title}) and its respective [link](${link}). Validate if the product is consumable or applicable to the human body (e.g., food, cosmetics, etc.) and proceed accordingly. If not, return an error message with the key 'error' indicating that the product is not suitable for consumption or application and provide specific reasoning.
-  
-  For consumable or applicable products, provide a comprehensive analysis:
+  In a highly efficient, consistent and detailed manner, analyze the product (${title}) &  provide a comprehensive analysis:.
   
   ## Product Overview
   
