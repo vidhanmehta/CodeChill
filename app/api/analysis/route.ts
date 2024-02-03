@@ -18,7 +18,12 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Missing Link Parameter' },{status: 400});
   }
 
-  const {title, price} = await LinkScraper(link);
+  type scrapedData= {
+    title: string;
+    price: string;
+  }
+
+  const {title, price} = await LinkScraper(link) as scrapedData;
 
   // Extract the `prompt` from the body of the request
   console.log(title)
