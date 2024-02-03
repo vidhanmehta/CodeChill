@@ -31,7 +31,7 @@ const Demo: React.FC<DemoProps> = () => {
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
             />
-            <Button onClick={handleGoClick}>Add</Button>
+            <Button className="hover:bg-[#BA7969]" onClick={handleGoClick}>Add</Button>
           </div>
         </PopoverContent>
       </Popover>
