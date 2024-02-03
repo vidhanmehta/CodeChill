@@ -1,6 +1,6 @@
 import React from 'react';
 import { Rubik } from 'next/font/google';
-import Circ
+
 
 const rubik = Rubik({
     subsets: ['latin-ext']

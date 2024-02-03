@@ -13,6 +13,7 @@ export const runtime = 'edge';
  
 export async function POST(req: NextRequest) {
   const { prompt } = await req.json();
+  console.log(prompt)
   // console.log(link)
   // if (!link) {
   //   return NextResponse.json({ error: 'Missing Link Parameter' },{status: 400});
