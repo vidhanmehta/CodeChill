@@ -11,6 +11,8 @@
   "dependencies": {
     "@nextui-org/react": "^2.2.9",
     "@radix-ui/react-popover": "^1.0.7",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.2.1",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.3",
     "next": "14.1.0",
