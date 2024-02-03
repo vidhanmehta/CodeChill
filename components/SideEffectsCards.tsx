@@ -1,4 +1,3 @@
-"use client"
 import React, { useState, useEffect } from 'react';
 import { Card, CardHeader, Chip, Divider, CardBody, CardFooter } from '@nextui-org/react';
 
@@ -41,7 +40,7 @@ const SideEffectsCards: React.FC = () => {
 
   return (
     <>
-    <div className='grid grid-cols-2 gap-8'>
+    <div className='grid grid-cols-2 gap-8' >
       {harmfulIngredientsData.map((ingredient, index) => (
         <div
           key={index}
