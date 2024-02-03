@@ -1,13 +1,17 @@
 "use client"
 
 import InputForm from "@/components/Input/InputForm";
-import { Button } from "@nextui-org/react";
+import { Button , Chip} from "@nextui-org/react";
+import { useChipsStore } from "@/store/useChipsStore";
+import Demo from "@/components/Filter/Demo";
+
 
 
 
 
 
 export default function Product( ) {
+    const chips = useChipsStore((state) => state.chips);
    
     return (
         <>
@@ -50,17 +54,30 @@ export default function Product( ) {
            
         </div>
 
+        <Demo chips={[]} />
+
         <div className="px-4 pt-6 mx-auto max-w-7xl sm:px-6 lg:px-8 relative z-20">
             <div className="max-w-xl mx-auto text-center">
                 <h1 className="text-4xl font-bold sm:text-6xl">
                     <span className="text-[#110B09]  "> IsWiseChoice? </span>
+                 
+                    
                 </h1>
                 <p className="mt-5 text-3xl font-bold text-[#BA7969] sm:text-3xl"> Securely Sorted , Wisely Chosen  </p>
 
 <div className="flex justify-center pt-4 mx-10">
                 <InputForm />
+            
+
 
                 </div>
+
+                
+                <div style={{ marginTop: '10px' }}>
+        {chips.map((chip, index) => (
+          <Chip key={index}>{chip}</Chip>
+        ))}
+      </div>
 
                 {/* <Button href="#" title="" className="inline-flex items-center px-6 py-4 mt-8  text-white transition-all duration-200 bg- rounded-lg sm:mt-16 hover:bg-blue-700 focus:bg-blue-700" role="button">
                     Get Started

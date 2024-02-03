@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "@radix-ui/react-popover";
 import { Button, Chip, Input } from '@nextui-org/react';
-
+import { useChipsStore } from "@/store/useChipsStore";
 interface DemoProps {
  
   chips: string[];
@@ -10,16 +10,15 @@ interface DemoProps {
 
 const Demo: React.FC<DemoProps> = () => {
   const [inputText, setInputText] = useState<string>('');
-  const [chips, setChips] = useState<string[]>([]);
+  const addChip = useChipsStore((state) => state.addChip);
   const [showInput, setShowInput] = useState<boolean>(false);
 
   const handleGoClick = () => {
     if (inputText.trim() !== '') {
-        setChips([...chips, inputText]);
-        setInputText('');
-      }
+      addChip(inputText);
+      setInputText('');
+    }
   };
-
   return (
     <>
       <Popover>
