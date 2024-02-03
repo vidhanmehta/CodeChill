@@ -12,7 +12,12 @@ import Demo from "@/components/Filter/Demo";
 
 export default function Product( ) {
     const chips = useChipsStore((state) => state.chips);
+
+    const handleRemoveChip = (index: number) => {
+        useChipsStore.setState((state) => ({ chips: state.chips.filter((_, i) => i !== index) }));
+      };
    
+    
     return (
         <>
         <div className="min-h-screen ">
@@ -73,11 +78,14 @@ export default function Product( ) {
                 </div>
 
                 
-                <div style={{ marginTop: '10px' }}>
-        {chips.map((chip, index) => (
-          <Chip key={index}>{chip}</Chip>
-        ))}
-      </div>
+                <div style={{ marginTop: '30px' }}>
+      {chips.map((chip, index) => (
+        <div key={index} style={{ display: 'flex', alignItems: 'center', width: '30vh' }}>
+        <Chip className="w-[30vh]">{chip}</Chip>
+          {/* <button onClick={() => handleRemoveChip(index)}>Cancel</button> */}
+        </div>
+      ))}
+    </div>
 
                 {/* <Button href="#" title="" className="inline-flex items-center px-6 py-4 mt-8  text-white transition-all duration-200 bg- rounded-lg sm:mt-16 hover:bg-blue-700 focus:bg-blue-700" role="button">
                     Get Started

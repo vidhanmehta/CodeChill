@@ -13,7 +13,7 @@ const Demo: React.FC<DemoProps> = () => {
   const addChip = useChipsStore((state) => state.addChip);
   const [showInput, setShowInput] = useState<boolean>(false);
 
-  const handleGoClick = () => {
+   const handleGoClick = () => {
     if (inputText.trim() !== '') {
       addChip(inputText);
       setInputText('');
@@ -26,7 +26,7 @@ const Demo: React.FC<DemoProps> = () => {
         <PopoverContent>
           <div>
             <Input
-              placeholder="Type something..."
+              label="Type something..."
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
             />
