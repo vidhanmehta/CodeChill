@@ -11,7 +11,7 @@ const InputForm = () => {
     <div className="input__container">
   <div className="shadow__input"></div>
   <div className='flex gap-4 w-full b'>
-  <Input type="text" name="text" className="input__search  px-5" placeholder="What do you want to search?" />
+  <Input type="text" name="text" className="input__search  px-5" placeholder="Paste your Amazon link here" />
   <Demo chips={[]} />
   </div>
   

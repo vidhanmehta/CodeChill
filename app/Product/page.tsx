@@ -26,7 +26,7 @@ export default function Product( ) {
             <div className="flex items-center justify-between h-16 lg:h-20">
                 
 
-                <div className="hidden lg:flex text-[#110B09] lg:items-center lg:justify-between lg:space-x-10">
+                {/* <div className="hidden lg:flex text-[#110B09] lg:items-center lg:justify-between lg:space-x-10">
                     <a href="#" title="" className="text-base text-[#110B09] transition-all duration-200 hover:text-opacity-80"> Features </a>
 
                     <a href="#" title="" className="text-base text-[#110B09] transition-all duration-200 hover:text-opacity-80"> Solutions </a>
@@ -34,7 +34,7 @@ export default function Product( ) {
                     <a href="#" title="" className="text-base text-[#110B09] transition-all duration-200 hover:text-opacity-80"> Resources </a>
 
                     <a href="#" title="" className="text-base text-[#110B09] transition-all duration-200 hover:text-opacity-80"> Pricing </a>
-                </div>
+                </div> */}
 
                
 
