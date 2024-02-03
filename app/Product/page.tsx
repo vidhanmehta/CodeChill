@@ -53,13 +53,13 @@ export default function Product( ) {
         </div>
     </header>
 
-    <section className="relative lg:min-h-[900px] pt-24 pb-10 sm:pt-32 sm:pb-16 lg:pb-24">
+    <section className="relative lg:min-h-[800px]  pt-24 pb-10 sm:pt-32 sm:pb-16 lg:pb-24">
         <div className="absolute inset-x-0 bottom-0 z-10 hidden lg:flex">
-            <img className="hidden w-full lg:block" src="https://cdn.rareblocks.xyz/collection/celebration/images/hero/5/credit-cards.png" alt="" />
+            {/* <img className="hidden w-[100vh] lg:block" src="https://i.imgur.com/loUtXto.jpeg" alt="" /> */}
            
         </div>
 
-        <Demo chips={[]} />
+        
 
         <div className="px-4 pt-6 mx-auto max-w-7xl sm:px-6 lg:px-8 relative z-20">
             <div className="max-w-xl mx-auto text-center">
@@ -78,10 +78,10 @@ export default function Product( ) {
                 </div>
 
                 
-                <div style={{ marginTop: '30px' }}>
+                <div style={{ marginTop: '30px', display:'flex', gap:'16px'  }}>
       {chips.map((chip, index) => (
-        <div key={index} style={{ display: 'flex', alignItems: 'center', width: '30vh' }}>
-        <Chip className="w-[30vh]">{chip}</Chip>
+        <div key={index} style={{ display: 'flex', alignItems: 'center' }}>
+        <Chip size="lg"  variant="faded"  radius="lg" onClose={() => handleRemoveChip(index)} >{chip}</Chip>
           {/* <button onClick={() => handleRemoveChip(index)}>Cancel</button> */}
         </div>
       ))}

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "@radix-ui/react-popover";
 import { Button, Chip, Input } from '@nextui-org/react';
+import { FaFilter } from "react-icons/fa6";
 import { useChipsStore } from "@/store/useChipsStore";
 interface DemoProps {
  
@@ -22,7 +23,7 @@ const Demo: React.FC<DemoProps> = () => {
   return (
     <>
       <Popover>
-        <PopoverTrigger className="text-xl text-white">Filter</PopoverTrigger>
+        <PopoverTrigger className="text-xl text-white"><FaFilter color="black "  size={30}/></PopoverTrigger>
         <PopoverContent>
           <div>
             <Input
