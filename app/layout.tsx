@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 import Nav from "@/components/Nav";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
       <Providers>
+      <Toaster/>
           <Nav />
           {children}
         </Providers>
