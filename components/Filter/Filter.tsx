@@ -1,6 +1,10 @@
 "use client";
 import React , {useState} from 'react'
 import { Button , Chip , Input } from '@nextui-org/react';
+interface FilterProps {
+    
+}
+
 const Filter: React.FC = () => {
     const [inputText, setInputText] = useState<string>('');
   const [chips, setChips] = useState<string[]>([]);
