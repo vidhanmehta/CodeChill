@@ -13,7 +13,7 @@ const Nav = (props: Props) => {
             </div>
             <h3>IsWiseChoice?</h3>
         </div>
-        <Link href='/analysis'><h5 className='items-center'>About Us</h5></Link>
+        <Link href='/about'><h5 className='items-center'>About Us</h5></Link>
     </div>
   )
 }
