@@ -44,7 +44,7 @@ const SideEffectsCards: React.FC = () => {
       {harmfulIngredientsData.map((ingredient, index) => (
         <div
           key={index}
-          className="w-72 bg-white rounded-b-lg border-t-8 border-red-400 px-4 py-5 justify-around shadow-md"
+          className="w-72 bg-white rounded-b-lg border-t-8 border-[#F31260] px-4 py-5 justify-around shadow-md"
         >
           <p className="text-lg font-bold font-sans">{ingredient.name}</p>
           <div className="py-3">
