@@ -33,7 +33,7 @@ const Analysis:React.FC = () => {
                         showValueLabel={true}
                         />
                 </div>
-                <p className='text-md mt-4 text-[0.8rm] analysis__container font-semibold'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                <p className='text-md mt-4 text-[0.8rm] analysis__container font-semibold'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
                 <div className='flex gap-6 pt-5'>
                     <div className="flex-1 flex-row mt-4  pt-4">
                         <h4>Ingredients</h4>
@@ -84,7 +84,7 @@ const Analysis:React.FC = () => {
                     defaultValue={0.2}
                     className="max-w-md"
                     />
-                    <p className='mt-10 analysis__container'>t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Cont</p>
+                    <p className='mt-10 analysis__container'>t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Cont</p>
                     </div>
                 </div>
             </div>
