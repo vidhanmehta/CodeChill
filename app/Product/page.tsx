@@ -44,11 +44,11 @@ export default function Product( ) {
     <section className="bg-slate-100 px-10 py-12 flex justify-between gap-4">
        <div className=" w-2/5">
         <h5>⚠️ Harmful Ingredients Alert</h5>
-        <p className="text-pretty mt-2">Discover what's really in your products. We flag harmful ingredients and outline their potential side effects, empowering you to make healthier choices for you and your family.</p>
+        <p className="text-pretty mt-2">Discover whats really in your products. We flag harmful ingredients and outline their potential side effects, empowering you to make healthier choices for you and your family.</p>
        </div>
        <div className=" w-2/5">
         <h5>🌿 Safer Alternatives Await</h5>
-        <p className="text-pretty mt-2">Not satisfied with your product's safety score? We doesn't just stop at analysis – we recommend safer alternatives with higher safety scores. Step into a world where quality meets safety, and your choices align with your health goals..</p>
+        <p className="text-pretty mt-2">Not satisfied with your products safety score? We doesnt just stop at analysis – we recommend safer alternatives with higher safety scores. Step into a world where quality meets safety, and your choices align with your health goals..</p>
        </div>
        <div className=" w-2/5">
         <h5>🦄 Join the Symphony</h5>
@@ -83,12 +83,12 @@ export default function Product( ) {
         <h5 className="mb-5 border-b-4 border-[#f0c3c0] w-fit">🔍 How it Works?</h5>
             <span className="flex-row mb-2">
                 <h6 className="text-md font-semibold">Paste Your Amazon Link</h6>
-                <p>Simply copy and paste the Amazon product link you're curious about into our intuitive interface.</p>
+                <p>Simply copy and paste the Amazon product link youre curious about into our intuitive interface.</p>
             </span>
             -
             <span className="flex-row mb-2">
                 <h6 className="text-md font-semibold">Comprehensive Ingredient Analysis</h6>
-                <p>Our advanced algorithms analyze the product's ingredients, identifying potential harmful substances and their associated side effects.</p>
+                <p>Our advanced algorithms analyze the products ingredients, identifying potential harmful substances and their associated side effects.</p>
             </span>
             -
             <span className="flex-row mb-2">

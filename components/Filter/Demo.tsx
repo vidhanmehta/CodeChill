@@ -25,13 +25,16 @@ const Demo: React.FC<DemoProps> = () => {
       <Popover>
         <PopoverTrigger className="text-xl text-white"><FaFilter color="black "  size={30}/></PopoverTrigger>
         <PopoverContent>
-          <div>
+          <div className="pt-4 flex gap-4">
             <Input
               label="Type something..."
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
+
             />
-            <Button className="hover:bg-[#BA7969]" onClick={handleGoClick}>Add</Button>
+            <div className="pt-2">
+            <Button className="hover:bg-[#BA7969] bg-white" onClick={handleGoClick}>Add</Button>
+          </div>
           </div>
         </PopoverContent>
       </Popover>
