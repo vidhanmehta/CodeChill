@@ -117,3 +117,21 @@ border: none;
   padding: 8px;
   position: relative;
 }
+
+
+.analysis__container {
+  
+  background: rgba(255, 255, 255, 0.664);
+  padding: 8px 30px;
+  display: flex;
+  scale: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border-radius: 22px;
+  max-width: 700px;
+  transition: transform 400ms;
+  transform-style: preserve-3d;
+ 
+  perspective: 500px;
+}
