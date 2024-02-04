@@ -1,28 +1,18 @@
+"use client"
 import React from 'react';
 import { Rubik } from 'next/font/google';
 import {CircularProgress} from "@nextui-org/react";
 import {Chip} from "@nextui-org/react";
 import {Slider} from "@nextui-org/react";
-"use client"
-import React, { useState, useEffect } from 'react';
+
+
 import SideEffectsCards from '@/components/SideEffectsCards';
+import Recomended from './Recomended';
 
-const Analysis: React.FC = () => {
+const rubik = Rubik({
+    subsets:["latin"]
+});
 
-
-  return (
-    <>
-      <div className="flex  w-screen bg-white">
-        <div className="flex flex-1 w-full pragyam"></div>
-        <div className="flex flex-1 flex-row w-full justify-center pt-16 ">
-     <SideEffectsCards />
-  
-
-        </div>  
-      </div>
-      
-    </>
-  );
 
 
 const Analysis:React.FC = () => {
@@ -98,7 +88,19 @@ const Analysis:React.FC = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-1 w-full divyesh"></div>
+            <div className="flex-row px-10 pt-4 flex-1 w-full divyesh">
+                
+            
+          
+                <div className='flex mt-6 ml-8 w-full justify-evenly'>
+                    <h3 className='text-4xl border-b-4 border-[#BA7969] mb-4 pt-28 '>Harmful Ingridients</h3>
+                   
+              
+            </div>
+            <div className="shadow__input"></div>
+            <SideEffectsCards />
+            </div>
+
         </div>
         <Recomended />
       
