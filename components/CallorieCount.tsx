@@ -1,6 +1,5 @@
 "use client"
 import React from 'react'
-import {CircularProgress, Card, CardBody, CardFooter, Chip} from "@nextui-org/react";
 import CountUp from 'react-countup';
 const CallorieCount:React.FC = () => {
   return (

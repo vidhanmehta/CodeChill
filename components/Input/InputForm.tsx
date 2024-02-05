@@ -12,7 +12,7 @@ const InputForm = () => {
   const [link, setLink] = React.useState<string>("")
   const chip = useChipsStore(state => state.chips)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault()
     const values = 'filters='+ chip.join(',')
     console.log(values)
