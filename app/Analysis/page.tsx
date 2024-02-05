@@ -38,66 +38,65 @@ const Analysis:React.FC = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fetchData = async () =>{
-        try {
-            const result = await axios.post('http://localhost:3000/api/analysis', {link: link, filters: filters}).then(res => {
-                setLoading(false);
-                console.log(res.data)
-                setResponse(res.data)
-                console.log(response)
-                if(res.data.safety_score! == 0){
-                    toast.error("Contains one or more of the filters and hence the safety score is brought down to 0")
-                }
-            })
+        const fetchData = async () => {
+          try {
+            const res = await axios.post("http://localhost:3000/api/analysis", {
+              link: link,
+              filters: filters,
+            });
+    
             setLoading(false);
-        } catch (error) {
-            console.log(error)
+            console.log(res.data);
+            const dataString = res.data.replace(/```/g, '').replace(/json/g, '').replace(/JSON/g, ''); // Remove the ```json markers
+            const data = JSON.parse(dataString);
+            console.log("🚀 ~ fetchData ~ data:", data);
+            setResponse(data);
+    
+            if (data?.safety_score !== 0) {
+              // Do something when safety score is not 0
+            } else {
+              toast.error(
+                "Contains one or more of the filters and hence the safety score is brought down to 0"
+              );
+            }
+          } catch (error) {
+            console.error(error);
             setLoading(false);
-        }
-    }
+          }
+        };
+    
+        fetchData();
+      }, [link, filters]);
 
-    fetchData()
-    },[])
+    console.log(response)
 
-    console.log(response?.product_title)
-
-   
     return (<> {loading && <SparklesPreview />} {!loading && <>  
         <div className="flex h-screen background__container w-screen ">
             <div className="flex-row flex-1 w-full px-10 py-8 pragyam">
-                {(response!.safety_score <= 50) && <h2  className='text-3xl font-semibold text-rose-700 bg-[#eec0c0] h-fit w-fit p-2 -rotate-12 mt-4'>Not a Wise Choice!</h2>}
-                {(response!.safety_score > 50 && response!.safety_score < 80) && <h2  className='text-3xl font-semibold text-yellow-500 bg-[#e8efa58c] h-fit w-fit p-2 -rotate-12 mt-4'>Good Choice!</h2>}
-                {(response!.safety_score >= 80) &&<h2  className='text-3xl font-semibold text-green-500 bg-[#d2fbae] h-fit w-fit p-2 -rotate-12 mt-4'>It's a Great Choice!</h2>}
+                {(response?.safety_score <= 50) && <h2  className='text-3xl font-semibold text-rose-700 bg-[#eec0c0] h-fit w-fit p-2 -rotate-12 mt-4'>Not a Wise Choice!</h2>}
+                {(80 > response?.safety_score > 50) && <h2  className='text-3xl font-semibold text-yellow-500 bg-[#e8efa58c] h-fit w-fit p-2 -rotate-12 mt-4'>Good Choice!</h2>}
+                {(response?.safety_score >= 80) &&<h2  className='text-3xl font-semibold text-green-500 bg-[#d2fbae] h-fit w-fit p-2 -rotate-12 mt-4'>It's a Great Choice!</h2>}
                 <div className='flex mt-6 ml-8 w-full justify-evenly'>
-                    <h1 className='text-4xl border-b-4 border-[#BA7969] mt-4 '>{response!.product_title!}</h1>
+                    <h1 className='text-4xl border-b-4 border-[#BA7969] mt-4 '>{response?.product_title}</h1>
                    
                     <CircularProgress
                        color="danger"
                         label="Safety Score"
                         size="lg"
                         
-                        value={response!.safety_score!}
+                        value={response?.safety_score}
                        
                         showValueLabel={true}
                         />
                 </div>
-                <p className='text-md mt-4 text-[0.8rm] analysis__container font-semibold'>{response!.product_desription}</p>
+                <p className='text-md mt-4 text-[0.8rm] analysis__container font-semibold'>{response?.product_description}</p>
                 <div className='flex gap-6 pt-5'>
                     <div className="flex-1 flex-row mt-4  pt-4">
                         <h4>Ingredients</h4>
-                        <ul className=' flex flex-wrap gap-2 analysis__container items-start pt-16 w-full'>
+                        {response?.ingredients_breakdown.forEach((ing)=> {return (<ul className=' flex flex-wrap gap-2 analysis__container items-start pt-16 w-full'>
                         <div className="flex flex-col shadow__input"></div>
-                            <li><Chip color="danger" variant="shadow" className='my-2'>Ingredient</Chip></li>
-                            <li><Chip color="danger" variant="faded" className='my-2'>Ingredient</Chip></li>
-                            <li><Chip color="danger" variant="shadow" className='my-2'>Ingredient</Chip></li>
-                            <li><Chip color="danger" variant="faded" className='my-2'>Ingredient</Chip></li>
-                            <li><Chip color="danger" variant="shadow" className='my-2'>Ingredient</Chip></li>
-                            <li><Chip color="danger" variant="faded" className='my-2'>Ingredient</Chip></li>
-                            <li><Chip color="danger" variant="shadow" className='my-2'>Ingredient</Chip></li>
-                            <li><Chip color="danger" variant="faded" className='my-2'>Ingredient</Chip></li>
-                            <li><Chip color="danger" variant="shadow" className='my-2'>Ingredient</Chip></li>
-                            
-                        </ul>
+                            <li><Chip color="danger" variant="shadow" className='my-2'>{ing.ingredient_name}</Chip></li>
+                        </ul>)})}
                     </div>
                     <div className='flex-1 flex-row gap-4 pt-8'>
                         
@@ -129,7 +128,7 @@ const Analysis:React.FC = () => {
                         label: "80%",
                         },
                     ]}
-                    defaultValue={response!.reviews_sentiment_analysis?.sentiment_score}
+                    defaultValue={response?.reviews_sentiment_analysis?.sentiment_score}
                     className="max-w-md"
                     />
                     <p className='mt-10 analysis__container'>t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Cont</p>
@@ -157,4 +156,4 @@ const Analysis:React.FC = () => {
     );
 };
 
-export default Analysis;
+export default Analysis;
