@@ -1,4 +1,6 @@
+![Model Achitecture](https://github.com/vidhanmehta/CodeChill/assets/97885241/d68bb5fe-f51c-4278-bc95-495b3f147d57)
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
 
 ## Getting Started
 
