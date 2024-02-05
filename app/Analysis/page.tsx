@@ -4,7 +4,8 @@ import { Rubik } from 'next/font/google';
 import {CircularProgress} from "@nextui-org/react";
 import {Chip} from "@nextui-org/react";
 import {Slider} from "@nextui-org/react";
-import { useSearchParams } from 'next/navigation';
+import useSearchParams from 'next/router';
+
 
 
 import SideEffectsCards from '@/components/SideEffectsCards';
@@ -34,12 +35,16 @@ const rubik = Rubik({
 
 const Analysis:React.FC = () => {
     
-    const searchParams = useSearchParams()
-    const link = searchParams.get("link")
-    const filters = searchParams.get("filters")
-    console.log(link, filters)
-    const [response, setResponse] = useState<AnalysisProps | undefined>();
-    const [loading, setLoading] = useState(true);
+    import { useRouter } from 'next/router';
+
+    const Analysis: React.FC = () => {
+        const router = useRouter();
+        const searchParams = router.query;
+        const link = searchParams.link as string;
+        const filters = searchParams.filters as string;
+        console.log(link, filters);
+        const [response, setResponse] = useState<AnalysisProps | undefined>();
+        const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
