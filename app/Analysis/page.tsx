@@ -4,7 +4,7 @@ import { Rubik } from 'next/font/google';
 import {CircularProgress} from "@nextui-org/react";
 import {Chip} from "@nextui-org/react";
 import {Slider} from "@nextui-org/react";
-import useSearchParams from 'next/router';
+import { useSearchParams } from 'next/navigation';
 
 
 
@@ -35,16 +35,12 @@ const rubik = Rubik({
 
 const Analysis:React.FC = () => {
     
-    import { useRouter } from 'next/router';
-
-    const Analysis: React.FC = () => {
-        const router = useRouter();
-        const searchParams = router.query;
-        const link = searchParams.link as string;
-        const filters = searchParams.filters as string;
-        console.log(link, filters);
-        const [response, setResponse] = useState<AnalysisProps | undefined>();
-        const [loading, setLoading] = useState(true);
+    const searchParams = useSearchParams()
+    const link = searchParams.get("link")
+    const filters = searchParams.get("filters")
+    console.log(link, filters)
+    const [response, setResponse] = useState<AnalysisProps | undefined>();
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -102,12 +98,14 @@ const Analysis:React.FC = () => {
                 <div className='flex gap-6 pt-5'>
                     <div className="flex-1 flex-row mt-4  pt-4">
                         <h4>Ingredients</h4>
-                        {response?.ingredients_breakdown && response.ingredients_breakdown.map((ing) => (
-                            <ul className='flex flex-wrap gap-2 analysis__container items-start pt-16 w-full'>
-                                <div className="flex flex-col shadow__input"></div>
-                                <li><Chip color="danger" variant="shadow" className='my-2'>{ing.ingredient_name}</Chip></li>
-                            </ul>
-                        ))}
+                        {response?.ingredients_breakdown && response.ingredients_breakdown.map((ing, index) => (
+    <ul key={index} className='flex flex-wrap gap-2 analysis__container items-start pt-16 w-full'>
+        <div className="flex flex-col shadow__input"></div>
+        <li key={ing.ingredient_name}>
+            <Chip color="danger" variant="shadow" className='my-2'>{ing.ingredient_name}</Chip>
+        </li>
+    </ul>
+))}
                     </div>
                     <div className='flex-1 flex-row gap-4 pt-8'>
                         
